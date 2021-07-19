@@ -5,14 +5,14 @@ using UnityEngine;
 public class NumberWizard : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] int minimum = 1, upperLimit = 1000;
+    [SerializeField] int minimum = 1, upper = 1000;
     int maximum;
     int guess;
 
     // Start is called before the first frame update
     void Start()
     {
-        maximum = upperLimit;
+        maximum = upper;
         Debug.Log("Welcome to Number Wizard");
         Debug.Log("I will try to guess your number ma dude!!!");
         ResetGame();
@@ -23,9 +23,9 @@ public class NumberWizard : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (guess == upperLimit - 1)
+            if (guess == upper - 1)
             {
-                guess = upperLimit;
+                guess = upper;
                 minimum = guess;
                 DisplayGuess(guess);
             } else
@@ -54,8 +54,8 @@ public class NumberWizard : MonoBehaviour
     void ResetGame()
     {
         minimum = 1;
-        maximum = upperLimit;
-        Debug.Log($"Pick a number between {minimum} and {upperLimit}");
+        maximum = upper;
+        Debug.Log($"Pick a number between {minimum} and {upper}");
         guess = GuessCalc(minimum, maximum);
         DisplayGuess(guess);
     }
